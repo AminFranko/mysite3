@@ -31,8 +31,6 @@ def team_view(request):
 def testimonials_view(request):
     return render(request, 'website/testimonials.html')
 
-def test_view(request):
-    return render(request, 'website/test.html')
 
 
 
