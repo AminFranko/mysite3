@@ -39,9 +39,13 @@
               </h2>
 
               <div class="entry-meta">
+                <h5 class="bi bi-stack">
+
+                  {{post.category.all|join:", " }}
+                </h5>
                 <ul>
                   <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{post.author.get_full_name}}</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{post.published_date}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time >{{post.published_date|date:"Y-M-d"}}</time></a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-eye-fill"></i> <a href="blog-single.html">{{post.counted_views}} views</a></li>
                 </ul>
