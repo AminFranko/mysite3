@@ -59,7 +59,7 @@
 
               <div class="entry-content">
                 <p>
-                  {{post.content}}
+                  {{post.content|truncatechars:55|safe}}
                 </p>
                 <div class="read-more">
                   <a href="/blog/{{post.id}}">Read More</a>
