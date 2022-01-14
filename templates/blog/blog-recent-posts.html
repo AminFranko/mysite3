@@ -1,0 +1,18 @@
+
+{% load static %}
+<!-- Start sidebar recent posts-->
+<h3 class="sidebar-title">Recent Posts</h3>
+<div class="sidebar-item recent-posts">
+    {% for post in posts %}
+    <div class="post-item clearfix">
+        <img src="{{post.image.url}}" alt="">
+        <h4><a href="{% url 'blog:single' pid=post.id  %}">{{post.title}}</a></h4>
+        <!-- <time datetime="2020-01-01">{{post.published_date}}</time> -->
+        <p>{{post.published_date}}</p>
+    </div>
+    {% endfor%}
+
+
+
+</div>
+<!-- End sidebar recent posts-->
