@@ -12,3 +12,5 @@ class PostAdmin(admin.ModelAdmin):
     ordering = ['-created_date']
     search_fields = ('title','content')
 admin.site.register(Post,PostAdmin)
+
+
