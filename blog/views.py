@@ -11,6 +11,9 @@ def blog_view(request,**kwargs):
         posts = posts.filter(category__name = kwargs['cat_name'])
     if kwargs.get('author_username') != None:
         posts = posts.filter(author__username = kwargs['author_username'])
+    if kwargs.get('tag_name') != None:
+        posts = posts.filter(tags__name__in = [kwargs['tag_name']])
+
     posts = Paginator(posts,3)
     try:
         page_number = request.GET.get('page')
@@ -21,6 +24,7 @@ def blog_view(request,**kwargs):
         posts = posts.get_page(1)
     context = {'posts':posts}
     return render(request, 'blog/blog-home.html',context)
+
 
 def blog_single(request,pid):
     posts = Post.objects.filter(status=1)
