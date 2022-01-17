@@ -42,8 +42,19 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
+      
 
       <h1 class="logo me-auto"><a href="{% url 'website:index' %}">Sailor</a></h1>
+
+      <div>
+        {% if request.user.is_authenticated %}
+        <a href="#">Logged in as {{request.user.username}}</a>
+        {% else %}
+        <a href="{% url 'accounts:login' %}">Login</a>
+        <br>
+        <a href="#">Signup</a>
+        {% endif %}
+      </div>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src=" static 'img/logo.png" alt="" class="img-fluid"></a>-->
 
