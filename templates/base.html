@@ -44,17 +44,20 @@
     <div class="container d-flex align-items-center">
       
 
-      <h1 class="logo me-auto"><a href="{% url 'website:index' %}">Sailor</a></h1>
-
-      <div>
+      <h1 class="logo me-auto">SAILOR</h1>   
         {% if request.user.is_authenticated %}
         <a href="#">Logged in as {{request.user.username}}</a>
+        <span class="bi bi-door-open-fill"> </span>
+        <a a href="{% url 'accounts:logout' %}">Logout</a>
         {% else %}
         <a href="{% url 'accounts:login' %}">Login</a>
         <br>
-        <a href="#">Signup</a>
+        <span class="bi bi-door-open-fill"> </span>
+        <a href="{% url 'accounts:signup' %}">Signup</a>
         {% endif %}
-      </div>
+      
+      <!-- <span class="logo me-auto"></span> -->
+      
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src=" static 'img/logo.png" alt="" class="img-fluid"></a>-->
 

@@ -4,6 +4,7 @@ from django.core.paginator import PageNotAnInteger, Paginator, EmptyPage
 from blog.forms import CommentForm
 from django.contrib import messages
 
+
 # Create your views here.
 
 
