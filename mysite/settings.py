@@ -51,8 +51,19 @@ INSTALLED_APPS = [
     'django_extensions',
     'website.apps.WebsiteConfig',
     'blog',
-    'accounts'
+    'accounts',
+    'compressor'
 ]
+
+# compressor
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # 'compressor.filters.jsmin.SlimItFilter',
+    # 'compressor.filters.jsmin.CalmjsFilter',
+    # 'compressor.filters.cssmin.CSSCompressorFilter',
+    'compressor.finders.CompressorFinder'
+)
 
 
 # sites framework
@@ -198,3 +209,5 @@ INTERNAL_IPS = [
 ]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+
