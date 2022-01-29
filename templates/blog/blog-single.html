@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load humanize %}
-{%load static %}
+{% load static %}
 {% load blog_tags %}
 
 {% block content %}
@@ -47,10 +47,10 @@
                   {{post.category.all|join:", " }}
                 </h5>
                 <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{post.author.get_full_name}}</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time >{{post.published_date|date:"Y-M-d"}}</time></a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">{{ comments|length }} Comments</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-eye-fill"></i> <a href="blog-single.html">{{post.counted_views}} views</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{% url 'blog:author' author_username=post.author.username %}">{{post.author.get_full_name}}</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time >{{post.published_date|date:"Y-M-d"}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#">{{comments|length}} Comments</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-eye-fill"></i> <a href="#">{{post.counted_views}} views</a></li>
                 </ul>
               </div>
 
@@ -68,6 +68,38 @@
               
             </article><!-- End blog entry -->
            <!-- ========================================================== -->
+           <div class="navigation-area">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
+                <div class="thumb">
+                  <a href="#"><img class="img-fluid" src="{{prev_post.image.url}}" alt="" width="120"></a>
+                </div>
+                <div class="arrow">
+                  <a href="#"><span class="lnr text-white lnr-arrow-left"></span></a>
+                </div>
+                <div class="detials">
+                  <p>Prev Post</p>
+                  <a href="/blog/{{prev_post.id}}"><h4>{{prev_post.title}}</h4></a>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+                <div class="detials">
+                  <p>Next Post</p>
+                  <a href="/blog/{{next_post.id}}"><h4>{{next_post.title}}</h4></a>
+                </div>
+                <div class="arrow">
+                  <a href="#"><span class="lnr text-white lnr-arrow-right"></span></a>
+                </div>
+                <div class="sidebar-title">
+                  <a href="#"><img class="img-fluid" src="{{next_post.image.url}}" alt="" width="120" ></a>
+                </div>                    
+              </div>                  
+            </div>
+          </div>
+          <br>
+          <br>
+          <!-- ========================================================== -->
+
 
 
             <div class="blog-comments">

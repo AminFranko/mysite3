@@ -26,6 +26,8 @@ def blog_view(request,**kwargs):
         posts = posts.get_page(1)
     except EmptyPage:
         posts = posts.get_page(1)
+
+    
     context = {'posts':posts}
     return render(request, 'blog/blog-home.html',context)
 
@@ -42,10 +44,23 @@ def blog_single(request,pid):
 
     posts = Post.objects.filter(status=True)
     post = get_object_or_404(posts,pk=pid)
+    post.counted_views=post.counted_views+1
+    post.save()
+
+    if X := Post.objects.filter(status=True, id__lt=post.id)[0:1]:
+        prev_post = get_object_or_404(X)
+    else:
+        prev_post = post 
+    if Y := Post.objects.filter(status=True, id__gt=post.id).order_by('id')[0:1]:
+        next_post = get_object_or_404(Y)
+    else:
+        next_post = post
+
+
     if not post.login_require:
         comments =Comment.objects.filter(post=post.id,approved=True)
         form = CommentForm()
-        context = {'post':post,'comments':comments, 'form':form}
+        context = {'post':post,'comments':comments, 'form':form,'prev_post':prev_post,'next_post':next_post}
         return render(request,'blog/blog-single.html',context)
     else:
         return HttpResponseRedirect(reverse('accounts:login'))

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load humanize %}
 {% load static %}
 {% load blog_tags %}
 
@@ -52,15 +53,15 @@
                 </h5>
                 <ul>
                   <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{% url 'blog:author' author_username=post.author.username %}">{{post.author.get_full_name}}</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time >{{post.published_date|date:"Y-M-d"}}</time></a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">{{ comments|length }} Comments</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-eye-fill"></i> <a href="blog-single.html">{{post.counted_views}} views</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time >{{post.published_date|date:"Y-M-d"}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#">{% comments_count post.id %} Comments</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-eye-fill"></i> <a href="#">{{post.counted_views}} views</a></li>
                 </ul>
               </div>
 
               <div class="entry-content">
                 <p>
-                  {{post.content|truncatechars:55|safe}}
+                  {{post.content|truncatewords:20|safe}}
                 </p>
                 <div class="read-more">
                   <a href="/blog/{{post.id}}">Read More</a>
