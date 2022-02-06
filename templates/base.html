@@ -101,17 +101,18 @@
             <div class="footer-info">
               <h3>Smart Life</h3>
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+                Azimiyeh <br>
+                Karaj, Iran<br><br>
+                <strong>Phone:</strong> +98 920 920 3926<br>
+                <strong>Email:</strong> aminfranko@gmail.com<br>
               </p>
               <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                
+                <a href="https://twitter.com/frankoamin" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="https://www.facebook.com/amin.franko" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="https://www.instagram.com/aminfranko/" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="https://join.skype.com/invite/yFW6n1Wcfgk3" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="https://www.linkedin.com/in/amin-franko-0979557b/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
               </div>
             </div>
           </div>
@@ -119,28 +120,27 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'website:index' %}">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'website:portfolio' %}">Portfolio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'website:services' %}">Services</a></li>
+             
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'website:about' %}">About</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'website:team' %}">Team</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'website:testimonials' %}">Testimonials</a></li>
+              
             </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <p>To subscribe to our quarterly newsletter you can subscribe here</p>
             <form action="{% url 'website:newsletter' %}" method="post">
               {% csrf_token %}
               <input type="email" name="email"><input type="submit" value="Subscribe">
