@@ -52,9 +52,6 @@ def pricing_view(request):
 def services_view(request):
     return render(request, 'website/services.html')
 
-def team_view(request):
-    return render(request, 'website/team.html')
-
 def testimonials_view(request):
     return render(request, 'website/testimonials.html')
 
