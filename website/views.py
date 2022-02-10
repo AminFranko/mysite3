@@ -40,9 +40,6 @@ def newsletter_view(request):
 def about_view(request):
     return render(request, 'website/about.html')
 
-def portfolio_details_view(request):
-    return render(request, 'website/portfolio-details.html')
-
 def portfolio_view(request):
     return render(request, 'website/portfolio.html')
 
